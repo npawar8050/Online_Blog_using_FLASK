@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+    <title>Blog</title><br>
+</head>
+<body>
+    <section class="bg">
+        <h1 class="title">Write a blog<a class="anchor" href="/create"><img src="https://www.nicepng.com/png/full/104-1045958_feather-vector-pen-logo-png.png" width="10%"></a></h1>
+        
+    </section>
+    <ul class="list">
+        {% for post in posts %}
+                <li>
+                    <div class="blog-card">
+                        <img class="blog-img" src="https://i.pinimg.com/736x/fa/01/a2/fa01a2e6ad8dfbad4feb7eaa3a2c656b.jpg" /></img>
+                        <div class="text-overlay">
+                            <h2>{{ post.title }} </h2>
+                                <a href="/edit/{{ post.id }}" class="read-more">read more</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                <a href="/edit/{{ post.id }}"><img src="https://www.freeiconspng.com/uploads/edit-editor-pen-pencil-write-icon--4.png" width="4%"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                <a href="/delete/{{ post.id }}"><img src="https://static-00.iconduck.com/assets.00/delete-icon-1864x2048-bp2i0gor.png", width="4%"></a>
+                            <p>{{ post.content }}</p>
+                            
+                        </div>
+                    </div>
+                </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
